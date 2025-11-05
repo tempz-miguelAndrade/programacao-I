@@ -1,0 +1,36 @@
+<script>
+    const resposta1 = prompt("Telefonou para a vítima?");
+    const resposta2 = prompt("Esteve no local do crime?");
+    const resposta3 = prompt("Mora perto da vítima?");
+    const resposta4 = prompt("Devia para a vítima?");
+    const resposta5 = prompt("Já trabalhou com a vítima?");
+    let positivos = 0;
+    if (resposta1.toLowerCase() === "sim") {
+        positivos++;
+    }
+    if (resposta2.toLowerCase() === "sim") {
+        positivos++;
+    }
+    if (resposta3.toLowerCase() === "sim") {
+        positivos++;
+    }
+    if (resposta4.toLowerCase() === "sim") {
+        positivos++;
+    }
+    if (resposta5.toLowerCase() === "sim") {
+        positivos++;
+    }
+    let classificacao = "";
+    if ((positivos === 0) || (positivos === 1)) {
+        classificacao = "Inocente";
+    } else if (positivos === 2) {
+        classificacao = "Suspeita";
+    } else if (positivos === 3 || positivos === 4) {
+        classificacao = "Cúmplice";
+    } else if (positivos === 5) {
+        classificacao = "Assassino";
+    } else {
+        classificacao = "Inocente";
+    }
+    alert(`Classificação final: ${classificacao}`);
+</script>

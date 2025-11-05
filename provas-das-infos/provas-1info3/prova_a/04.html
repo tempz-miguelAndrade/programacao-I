@@ -1,0 +1,28 @@
+<script>
+    /*
+    Verificar Existência de Item
+    Considere que você possui a demanda dos seguintes itens de compra:
+    listaDeCompras = ['pão', 'queijo', 'leite', 'suco'];
+    Porém os produtos disponíveis no mercado são:
+    const itensDisponiveis = ['maçã', 'pão', 'leite', 'manteiga', 'café'];
+    Apresente para o usuário quais itens ele conseguirá comprar no mercado.
+
+    */
+
+    let listaCompras = ['pão', 'queijo', 'leite', 'suco'];
+    let itensDisponiveis = ['maçã', 'pão', 'leite', 'manteiga', 'café'];
+
+
+    let itensCompraveis = [];
+
+    for (let item of listaCompras) {
+
+        if(itensDisponiveis.includes(item)) {
+            itensCompraveis.push(item);
+        }
+
+    }
+
+    alert(`Os produtos disponíveis para comprar são: ${itensCompraveis.join(`, `)}.`);
+    
+</script>

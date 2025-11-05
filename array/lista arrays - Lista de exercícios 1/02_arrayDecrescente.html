@@ -1,0 +1,64 @@
+<meta charset="UTF-8" />
+<script>
+    /*
+    PROBLEMA: ARRAY EM ORDEM DECRESCENTE
+    Peça para um usuário inserir três números. Crie um array com os três números, colocando-os em ordem decrescente. Para ordenar, NÃO use o método reverse();
+    Retorne os elementos do array, separando-os por hífen (n1 - n2 - n3).
+    */
+
+    //ENTRADA
+    const numeroUm = Number(prompt("Informe o primeiro número:"));
+    const numeroDois = Number(prompt("Informe o segundo número:"));
+    const numeroTres = Number(prompt("Informe o terceiro número:"));
+
+
+    //PROCESSAMENTO
+    let ordemDecrescente = [];
+
+    if (isNaN(numeroUm) || isNaN(numeroDois) || isNaN(numeroTres)) {
+        alert("Digite apenas números válidos!");
+    } else if (numeroUm > numeroDois) {
+        if (numeroUm > numeroTres) {
+            if (numeroDois > numeroTres) {
+                ordemDecrescente = [numeroUm, numeroDois, numeroTres];
+                alert(ordemDecrescente.join(" - "));
+            } else {
+                ordemDecrescente = [numeroUm, numeroTres, numeroDois];
+                alert(ordemDecrescente.join(" - "));
+            }
+        } else {
+            ordemDecrescente = [numeroTres,numeroUm, numeroDois];
+            alert(ordemDecrescente.join(" - "));
+        }
+    } else if (numeroDois > numeroUm) {
+        if (numeroDois > numeroTres) {
+            if (numeroUm > numeroTres) {
+                ordemDecrescente = [numeroDois, numeroUm, numeroTres];
+                alert(ordemDecrescente.join(" - "));
+            } else {
+                ordemDecrescente = [numeroDois, numeroTres, numeroUm];
+                alert(ordemDecrescente.join(" - "));
+            }
+        } else {
+            ordemDecrescente = [numeroTres, numeroDois, numeroUm];
+            alert(ordemDecrescente.join(" - "));
+        }
+    } else {  
+        ordemCrescente = [numeroUm];
+        alert("Os dois números são iguais: " + ordemCrescente);
+        ordemCrescente = [numeroUm, numeroDois, numeroTres];
+        alert(ordemCrescente.join(" - "));
+    }
+
+    /*
+    [numeroUm, numeroDois, numeroTres]X
+    [numeroUm, numeroTres, numeroDois]X
+    [numeroDois, numeroUm, numeroTres]X
+    [numeroDois, numeroTres, numeroUm]X
+    [numeroTres, numeroUm, numeroDois]X
+    [numeroTres, numeroDois, numeroUm]X
+    */
+
+    //SAÍDA
+
+</script>

@@ -1,0 +1,42 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: REPRESENTANTE DE SALA
+    Peça para o programa perguntar ao professor regente o nome dos três candidatos a representante da sala.
+    Peça também para o programa perguntar ao professor regente a quantidade de alunos votantes.
+    Desenvolva um programa que armazene o voto de cada aluno da sala e apresente o resultado da votação, com o quantitativo de votos e também a porcentagem de votos de cada candidato a representante de sala.
+    */
+
+    let candidato1 = prompt(`Nome do 1º candidato:`);
+    let candidato2 = prompt(`Nome do 2º candidato:`);
+    let candidato3 = prompt(`Nome do 3º candidato:`);
+
+    let totalAlunos = Number(prompt(`Quantidade de alunos votantes:`));
+
+    let votos1 = 0;
+    let votos2 = 0;
+    let votos3 = 0;
+
+    for (let i = 1; i <= totalAlunos; i++) {
+        let voto = Number(prompt(`Aluno ${i}, digite o número do seu voto:\n1 - ${candidato1}\n2 - ${candidato2}\n3 - ${candidato3}`));
+
+        if (voto === 1) {
+            votos1++;
+        } else if (voto === 2) {
+            votos2++;
+        } else if (voto === 3) {
+            votos3++;
+        } else {
+            alert(`Voto inválido!`);
+            i--;
+        }
+    }
+
+    let porcentagem1 = (votos1 / totalAlunos) * 100;
+    let porcentagem2 = (votos2 / totalAlunos) * 100;
+    let porcentagem3 = (votos3 / totalAlunos) * 100;
+
+    
+    alert(`Resultado da votação:\n${candidato1}: ${votos1} votos (${porcentagem1.toFixed(1)}%)\n${candidato2}: ${votos2} votos (${porcentagem2.toFixed(1)}%)\n${candidato3}: ${votos3} votos (${porcentagem3.toFixed(1)}%)`);
+
+</script>

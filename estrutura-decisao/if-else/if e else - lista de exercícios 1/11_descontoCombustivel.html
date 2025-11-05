@@ -1,0 +1,29 @@
+<script>
+    const tipo = prompt("Informe o tipo de combustível (A - Álcool, G - Gasolina):").toUpperCase();
+    const litros = Number(prompt("Informe a quantidade de litros vendidos:"));
+    const precoGasolina = 6.50;
+    const precoAlcool = 6.10;
+    let precoFinal = 0;
+    let descontoPorLitro = 0;
+
+    if (tipo === "A") {
+        if (litros <= 20) {
+            descontoPorLitro = 0.03;
+        } else {
+            descontoPorLitro = 0.05;
+        }
+        precoFinal = litros * precoAlcool * (1 - descontoPorLitro);
+    } else if (tipo === "G") {
+        if (litros <= 20) {
+            descontoPorLitro = 0.04;
+        } else {
+            descontoPorLitro = 0.06;
+        }
+        precoFinal = litros * precoGasolina * (1 - descontoPorLitro);
+    } else {
+        alert("Tipo de combustível inválido. Use 'A' para álcool ou 'G' para gasolina.");
+    }
+    if (tipo === "A" || tipo === "G") {
+        alert(`Valor a ser pago: R$ ${precoFinal.toFixed(2)}`);
+    }
+</script>

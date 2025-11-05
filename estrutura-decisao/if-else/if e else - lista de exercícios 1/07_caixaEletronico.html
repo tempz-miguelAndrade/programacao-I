@@ -1,0 +1,117 @@
+<script>
+    const valor = Number(prompt("Digite o valor do saque (entre 10 e 600 reais):"));
+
+    if (valor >= 10 && valor <= 600) {
+        let resto = valor;
+
+        const notas100 = Math.floor(resto / 100);
+        resto = resto % 100;
+
+        const notas50 = Math.floor(resto / 50);
+        resto = resto % 50;
+
+        const notas10 = Math.floor(resto / 10);
+        resto = resto % 10;
+
+        const notas5 = Math.floor(resto / 5);
+        resto = resto % 5;
+
+        const notas1 = resto;
+
+        let mensagem = `Para sacar a quantia de ${valor} reais, você receberá `;
+        let contador = 0;
+
+        if (notas100 > 0) {
+            if (contador > 0) {
+                mensagem += ", ";
+            }
+            if (notas100 === 1) {
+                mensagem += "uma nota de 100";
+            } else if (notas100 === 2) {
+                mensagem += "duas notas de 100";
+            } else if (notas100 === 3) {
+                mensagem += "três notas de 100";
+            } else if (notas100 === 4) {
+                mensagem += "quatro notas de 100";
+            } else if (notas100 === 5) {
+                mensagem += "cinco notas de 100";
+            } else {
+                mensagem += notas100 + " notas de 100";
+            }
+            contador++;
+        }
+
+        if (notas50 > 0) {
+            if (contador > 0) {
+                mensagem += ", ";
+            }
+            if (notas50 === 1) {
+                mensagem += "uma nota de 50";
+            } else if (notas50 === 2) {
+                mensagem += "duas notas de 50";
+            } else {
+                mensagem += notas50 + " notas de 50";
+            }
+            contador++;
+        }
+
+        if (notas10 > 0) {
+            if (contador > 0) {
+                mensagem += ", ";
+            }
+            if (notas10 === 1) {
+                mensagem += "uma nota de 10";
+            } else if (notas10 === 2) {
+                mensagem += "duas notas de 10";
+            } else if (notas10 === 3) {
+                mensagem += "três notas de 10";
+            } else if (notas10 === 4) {
+                mensagem += "quatro notas de 10";
+            } else if (notas10 === 5) {
+                mensagem += "cinco notas de 10";
+            } else {
+                mensagem += notas10 + " notas de 10";
+            }
+            contador++;
+        }
+
+        if (notas5 > 0) {
+            if (contador > 0) {
+                mensagem += ", ";
+            }
+            if (notas5 === 1) {
+                mensagem += "uma nota de 5";
+            } else if (notas5 === 2) {
+                mensagem += "duas notas de 5";
+            } else {
+                mensagem += notas5 + " notas de 5";
+            }
+            contador++;
+        }
+
+        if (notas1 > 0) {
+            if (contador > 0) {
+                mensagem += " e ";
+            }
+            if (notas1 === 1) {
+                mensagem += "uma nota de 1";
+            } else if (notas1 === 2) {
+                mensagem += "duas notas de 1";
+            } else if (notas1 === 3) {
+                mensagem += "três notas de 1";
+            } else if (notas1 === 4) {
+                mensagem += "quatro notas de 1";
+            } else if (notas1 === 5) {
+                mensagem += "cinco notas de 1";
+            } else {
+                mensagem += notas1 + " notas de 1";
+            }
+        }
+
+        mensagem += ".";
+
+        alert(mensagem);
+    } else {
+        alert("Valor inválido. Digite um valor entre 10 e 600 reais.");
+    }
+</script>

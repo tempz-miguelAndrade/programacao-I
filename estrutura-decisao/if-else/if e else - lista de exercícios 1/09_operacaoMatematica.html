@@ -1,0 +1,51 @@
+<script>
+    const numero1 = Number(prompt("Digite o primeiro número:"));
+    const numero2 = Number(prompt("Digite o segundo número:"));
+    const operacao = prompt("Digite a operação desejada (+, -, *, /):");
+    let resultado;
+    let paridade;
+    let sinal;
+    let tipo;
+
+    if (operacao === "+") {
+        resultado = numero1 + numero2;
+    } else if (operacao === "-") {
+        resultado = numero1 - numero2;
+    } else if (operacao === "*") {
+        resultado = numero1 * numero2;
+    } else if (operacao === "/") {
+        resultado = numero1 / numero2;
+    } else {
+        resultado = null;
+    }
+
+    if (resultado !== null) {
+        // Par ou ímpar
+        if (resultado % 2 === 0) {
+            paridade = "par";
+        } else {
+            paridade = "ímpar";
+        }
+
+        // Positivo ou negativo
+        if (resultado > 0) {
+            sinal = "positivo";
+        } else if (resultado < 0) {
+            sinal = "negativo";
+        } else {
+            sinal = "neutro (zero)";
+        }
+
+        // Inteiro ou decimal
+        if (resultado % 1 === 0) {
+            tipo = "inteiro";
+        } else {
+            tipo = "decimal";
+        }
+
+        alert(`O resultado da operação é ${resultado}.
+Esse número é ${paridade}, ${sinal} e ${tipo}.`);
+    } else {
+        alert("Operação inválida. Use apenas: +, -, * ou /");
+    }
+</script>

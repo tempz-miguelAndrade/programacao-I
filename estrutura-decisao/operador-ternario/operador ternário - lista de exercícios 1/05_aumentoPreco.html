@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+<script>
+    //Problema: Aumento de Preço
+    //Recebe o preço do produto e calcula o aumento do preço, baseado no seguinte critério:
+        //- até 280(inclusive): aumento de 20 %
+        //- até 700(inclusive): aumento de 15 %
+        //- até 1500(inclusive): aumento de 10 %
+        //- acima de 1500: aumento de 5 %
+    
+    //Entrada
+    const precoProduto = Number(prompt(`Informe o preço de um produto:`)); 
+
+
+    //Processamento
+    let mensagemFinal = ``;
+
+    let ate280 = precoProduto * 1.20;
+    let ate700 = precoProduto * 1.15;
+    let ate1500 = precoProduto * 1.10;
+    let mais1500 = precoProduto * 1.05;
+
+    (precoProduto <= 280) ?
+    mensagemFinal = `O preço ficará R$${ate280.toFixed(2)} com o aumento.`:
+    (precoProduto <= 700) ? 
+    mensagemFinal = `O preço ficará R$${ate700.toFixed(2)} com o aumento.` :
+    (precoProduto <= 1500) ?
+    mensagemFinal = `O preço ficará R$${ate1500.toFixed(2)} com o aumento.` :
+    mensagemFinal = `O preço ficará R$${mais1500.toFixed(2)} com o aumento.`;
+    //Saída
+    alert(mensagemFinal);
+</script>

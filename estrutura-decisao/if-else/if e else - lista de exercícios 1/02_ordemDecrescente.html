@@ -1,0 +1,20 @@
+<script>
+    const numeroUm = Number(prompt(`Informe o um número:`));
+    const numeroDois = Number(prompt(`Informe o segungo número:`));
+    const numeroTres = Number(prompt(`Informe o terceiro número:`));
+    if ((numeroUm > numeroDois) && (numeroUm > numeroTres) && (numeroDois > numeroTres)) {
+        alert(`${numeroUm},${numeroDois} e ${numeroTres}`);
+    } else if ((numeroDois >= numeroUm) && (numeroDois >= numeroTres) && (numeroUm >= numeroTres)) {
+        alert(`${numeroDois},${numeroUm} e ${numeroTres}`);
+    } else if ((numeroUm >= numeroDois) && (numeroUm >= numeroTres) && (numeroTres >= numeroDois)) {
+        alert(`${numeroUm},${numeroTres} e ${numeroDois}`);
+    } else if ((numeroDois >= numeroUm) && (numeroDois >= numeroTres) && (numeroTres >= numeroUm)) {
+        alert(`${numeroDois},${numeroUm} e ${numeroTres}`);
+    }  else if ((numeroTres >= numeroUm) && (numeroTres >= numeroDois) && (numeroDois >= numeroUm)) {
+        alert(`${numeroTres},${numeroDois} e ${numeroUm}`);
+    } else if ((numeroTres >= numeroUm) && (numeroTres >= numeroDois) && (numeroUm >= numeroDois)) {
+        alert(`${numeroTres}, ${numeroUm} e ${numeroDois}`);
+    } else {
+        alert(`Opção inválida!`)
+    }
+</script>

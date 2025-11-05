@@ -1,0 +1,31 @@
+<script>
+    /*
+    Problema: Viagem
+    Considere que uma família foi viajar e, entre cada parada, percorreu a seguinte quilometragem:
+    let distancias = [100, 130, 180, 150];
+    Calcule a quilometragem total da viagem e também quantos quilômetros foram viajados por hora, considerando que a viagem demorou 10 horas.
+
+    */
+
+    //Entrada
+    let distancias = [100, 130, 180, 150];
+
+    //Processamento
+    let somaKm = 0;
+    let viagemDemora = 10;
+
+    for (let distancia of distancias) {
+
+        somaKm += distancia;
+
+    }
+
+    let  kmHora = somaKm / viagemDemora;
+
+    //Saída
+    alert(`A quilometragem total de viagens é: ${somaKm.toFixed(1)}km.\nE a quantidade de quilômetros viajados por hora foram: ${kmHora.toFixed(1)}km/h.`);
+
+    /*
+    A viagem teve extensão total de 560 Km e a distância percorrida por hora foi de 56 Km.
+    */
+</script>

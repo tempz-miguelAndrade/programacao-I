@@ -1,0 +1,18 @@
+<meta charset="UTF-8" />
+<script>
+    const peso = Number(prompt("Informe seu peso (em kg):"));
+    const altura = Number(prompt("Informe sua altura (em metros):"));
+    const imc = peso / (altura ** 2);
+    let classificacao = "";
+
+    if (imc <= 18.5) {
+        classificacao = "Subpeso";
+    } else if (imc <= 25.0) {
+        classificacao = "Normal";
+    } else if (imc <= 30.0) {
+        classificacao = "Sobrepeso";
+    } else {
+        classificacao = "Obeso";
+    }
+    alert(`Seu IMC é ${imc.toFixed(2)}. Classificação: ${classificacao}`);
+</script>

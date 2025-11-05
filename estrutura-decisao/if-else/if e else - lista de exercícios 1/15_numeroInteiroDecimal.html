@@ -1,0 +1,11 @@
+<script>
+    const numero = Number(prompt("Informe um número:"));
+    let tipo = "";
+
+    if (Number.isInteger(numero)) {
+        tipo = "inteiro";
+    } else {
+        tipo = "decimal";
+    }
+    alert(`O número ${numero} é ${tipo}.`);
+</script>

@@ -1,0 +1,33 @@
+<script>
+    const hemisferio = prompt("Informe o hemisfério (N para Norte ou S para Sul):").toUpperCase();
+    const mes = prompt("Informe o mês atual:").toLowerCase();
+    let estacao = "";
+    if (hemisferio === "S") {
+        if (mes === "dezembro" || mes === "janeiro" || mes === "fevereiro") {
+            estacao = "Verão";
+        } else if (mes === "março" || mes === "abril" || mes === "maio") {
+            estacao = "Outono";
+        } else if (mes === "junho" || mes === "julho" || mes === "agosto") {
+            estacao = "Inverno";
+        } else if (mes === "setembro" || mes === "outubro" || mes === "novembro") {
+            estacao = "Primavera";
+        } else {
+            estacao = "Mês inválido.";
+        }
+    } else if (hemisferio === "N") {
+        if (mes === "dezembro" || mes === "janeiro" || mes === "fevereiro") {
+            estacao = "Inverno";
+        } else if (mes === "março" || mes === "abril" || mes === "maio") {
+            estacao = "Primavera";
+        } else if (mes === "junho" || mes === "julho" || mes === "agosto") {
+            estacao = "Verão";
+        } else if (mes === "setembro" || mes === "outubro" || mes === "novembro") {
+            estacao = "Outono";
+        } else {
+            estacao = "Mês inválido.";
+        }
+    } else {
+        estacao = "Hemisfério inválido.";
+    }
+    alert(`A estação do ano no hemisfério ${hemisferio} é: ${estacao}`);
+</script>

@@ -1,0 +1,21 @@
+<meta charset="UTF-8" />
+<script>
+    const preco = Number(prompt("Informe o preço do produto:"));
+    let percentual = 0;
+
+    if (preco <= 280) {
+        percentual = 20;
+    } else if (preco <= 700) {
+        percentual = 15;
+    } else if (preco <= 1500) {
+        percentual = 10;
+    } else {
+        percentual = 5;
+    }
+    const aumento = preco * (percentual / 100);
+    const novoPreco = preco + aumento;
+    alert(`Preço original: R$ ${preco.toFixed(2)}
+Percentual de aumento: ${percentual}%
+Valor do aumento: R$ ${aumento.toFixed(2)}
+Novo preço: R$ ${novoPreco.toFixed(2)}`);
+</script>

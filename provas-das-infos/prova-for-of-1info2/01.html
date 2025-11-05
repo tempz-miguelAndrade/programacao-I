@@ -1,0 +1,37 @@
+<script>
+    /*
+    Alunos Aprovados
+Você possui um array de notas de alunos: [8.5, 3.7, 6.9, 7.0, 5.2].
+Peça para o usuário adicionar uma nova nota. Depois, usando for...of, conte quantos alunos foram aprovados, considerando que a nota de corte estabelecida foi 6.0.
+Exiba o número total de alunos aprovados.
+    */
+
+    //entrada
+
+    let listaAlunos = [8.5, 3.7, 6.9, 7.0, 5.2];
+
+
+    const novaNota = Number(prompt(`Adicione uma nova nota para selecionarmos todos que passaram ou repetiram.`));
+    listaAlunos.push(novaNota);
+
+
+    //processo
+    let listaAprovados = [];
+
+    for (let nota of listaAlunos) {
+
+        if (nota >= 6) {
+            listaAprovados.push(nota);
+        }
+        
+    }
+
+    //saída
+    if (listaAprovados.length > 0 ) {
+    document.write(` ola ${listaAprovados.length}`);
+    }
+    else {
+        alert(`Impossivel!!`);
+    }
+
+</script>

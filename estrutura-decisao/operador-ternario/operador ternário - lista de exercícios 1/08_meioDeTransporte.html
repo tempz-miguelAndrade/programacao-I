@@ -1,0 +1,30 @@
+<meta charset="UTF-8">
+<script>
+    //Problema: Meio de transporte mais barato
+    // Faça um script que peça para o usuário informar o preço do litro do combustível e a quantidade de litros utilizados para se deslocar para o trabalho diariamente.
+    // Peça também ao programa para o usuário informar o preço do transporte público que deverá pagar para se deslocar ao trabalho diariamente.
+    // Verifique qual é o meio de transporte mais barato e apresente em tela, especificando quanto custará para ir e voltar do trabalho diariamente.
+
+    //Entrada
+    const precoLitroCombustivel = Number(prompt(`Informe o preço do litro do combustível:`));
+    const litroUltilizadoDeslocamento = Number(prompt(`Informe quantos litros de combustível é ultilizados para se deslocar para o trabalho diariamente:`));
+    const precoTransportePublicoDeslocamento = Number(prompt(`Informe o preço do transporte público para se deslocar ao trabalho diariamente:`));
+
+
+    //Processamento 
+    let mensagemFinal = ``;
+
+    let valorTotalComProprioTransporte = litroUltilizadoDeslocamento * precoLitroCombustivel;
+    let idaVoltaProprioTransporte = valorTotalComProprioTransporte / 2;
+    let passagemIdaVolta = precoTransportePublicoDeslocamento * 2;
+    let idaVoltaTransportePublico = passagemIdaVolta / 2;
+    let comparacaoValores = valorTotalComProprioTransporte - passagemIdaVolta;
+    
+    (valorTotalComProprioTransporte < passagemIdaVolta) ?
+    mensagemFinal = `Você deve usar o seu próprio transporte pois está R$${comparacaoValores.toFixed(2)} mais barato. O valor ficou: R$${valorTotalComProprioTransporte.toFixed(2)}. Sua ida custará em torno de:R$${idaVoltaProprioTransporte.toFixed(2)} e sua volta custará em torno de: R$${idaVoltaProprioTransporte.toFixed(2)}.`:
+    mensagemFinal = `Você deve usar o transporte público pois está R$${comparacaoValores.toFixed(2)} mais barato. O valor ficou: R$${passagemIdaVolta.toFixed(2)}. Sua ida custará em torno de: R$${idaVoltaTransportePublico.toFixed(2)}  e sua volta custará em torno de: R$${idaVoltaTransportePublico.toFixed(2)}.`;
+    //Saída
+    alert(mensagemFinal)
+    
+    
+</script>

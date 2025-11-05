@@ -1,0 +1,86 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: ESTAÇÃO DO ANO
+    Faça um script que pergunte para a pessoa em qual hemisfério ela está e qual o mês atual.
+    De acordo com as respostas, informe qual a estação do ano correspondente.
+    */
+
+    //ENTRADA
+    const hemisferio = prompt(`Informe em qual hemisfério está (norte ou sul):`).toLowerCase();
+    const mesAtual = prompt(`Informe o mês atual:`).toLowerCase();
+
+    //PROCESSAMENTO
+    let estacaoAno = "";
+    let mensagemFinal = "";
+
+    switch (hemisferio) {
+
+        case "sul":
+            switch (mesAtual) {
+                case "dezembro":
+                case "janeiro":
+                case "fevereiro":
+                    estacaoAno = "verão";
+                    break;
+                case "março":
+                case "abril":
+                case "maio":
+                    estacaoAno = "outono";
+                    break;
+                case "junho":
+                case "julho":
+                case "agosto":
+                    estacaoAno = "inverno";
+                    break;
+                case "setembro":
+                case "outubro":
+                case "novembro":
+                    estacaoAno = "primavera";
+                    break;
+                default:
+                    mensagemFinal = `Mês inválido informado!`;
+                    alert(mensagemFinal);
+                    break;
+            }
+            break;
+
+        case "norte":
+            switch (mesAtual) {
+                case "dezembro":
+                case "janeiro":
+                case "fevereiro":
+                    estacaoAno = "inverno";
+                    break;
+                case "março":
+                case "abril":
+                case "maio":
+                    estacaoAno = "primavera";
+                    break;
+                case "junho":
+                case "julho":
+                case "agosto":
+                    estacaoAno = "verão";
+                    break;
+                case "setembro":
+                case "outubro":
+                case "novembro":
+                    estacaoAno = "outono";
+                    break;
+                default:
+                    mensagemFinal = `Mês inválido informado!`;
+                    alert(mensagemFinal);
+                    break;
+            }
+            break;
+
+        default:
+            mensagemFinal = `Hemisfério inválido informado!`;
+            alert(mensagemFinal);
+            break;
+    }
+
+    //SAÍDA
+    mensagemFinal = `No hemisfério ${hemisferio}, em ${mesAtual}, é ${estacaoAno}.`;
+    alert(mensagemFinal);
+</script>

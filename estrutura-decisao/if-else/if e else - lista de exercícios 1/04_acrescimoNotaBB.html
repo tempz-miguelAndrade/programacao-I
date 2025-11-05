@@ -1,0 +1,12 @@
+<meta charset="UTF-8">
+<script>
+    const littleBrotherAntes = Number(prompt(`Digite sua nota antes da ajuda do big brother:`));
+    const littleBrotherDepois = Number(prompt(`Digite sua nota depois da ajuda do big brother:`));
+    const acrescimo = (littleBrotherDepois - littleBrotherAntes) / 4;
+    if (littleBrotherDepois > littleBrotherAntes) {
+        alert(`Parabéns você ganhou o acrécimo de nota de ${acrescimo} ponto`);
+    } else {
+        alert(`Está tudo bem, nem todos melhoram, Você tentou ajudar!`);
+    }
+
+</script>

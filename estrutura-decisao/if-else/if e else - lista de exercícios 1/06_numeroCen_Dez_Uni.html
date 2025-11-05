@@ -1,0 +1,64 @@
+<script>
+    const numeroInteiro = Number(prompt(`Informe um número menor que mil:`));
+    const centena = Math.floor(numeroInteiro / 100);
+    const dezena = Math.floor((numeroInteiro % 100) / 10) ;
+    const unidade = Math.floor(numeroInteiro % 10);
+    const calculo = (numeroInteiro / 100);
+    if (( centena == 0) && (dezena == 0) && (unidade == 1)) {
+        alert(`${numeroInteiro} = ${unidade} unidade.`);
+    } else  if (( centena == 0) && (dezena == 0) && (unidade > 1)) {
+        alert(`${numeroInteiro} = ${unidade} unidades.`);
+    } else if (( centena == 0) && (dezena == 1) && (unidade == 0)) {
+        alert(`${numeroInteiro} = ${dezena} dezena e ${unidade} unidade.`);
+    } else if (( centena == 0) && (dezena > 1) && (unidade == 0)) {
+        alert(`${numeroInteiro} = ${dezena} dezenas.`);
+    } else if (( centena == 0) && (dezena == 1) && (unidade == 1)) {
+        alert(`${numeroInteiro} = ${dezena} dezena e ${unidade} unidade.`);
+    } else if (( centena == 0) && (dezena > 1) && (unidade == 1)) {
+        alert(`${numeroInteiro} = ${dezena} dezenas e ${unidade} unidade.`);
+    } else if (( centena == 0) && (dezena == 1) && (unidade > 1)) {
+        alert(`${numeroInteiro} = ${dezena} dezena e ${unidade} unidades.`);
+    } else if (( centena == 0) && (dezena > 1) && (unidade > 1)) {
+        alert(`${numeroInteiro} = ${dezena} dezenas e ${unidade} unidades.`);
+    } else if (numeroInteiro >= 1000) {
+        alert(`Número inválido! Informe um número menor que 1000.`);
+    } else if (( centena == 1) && (dezena == 0) && (unidade == 0)) {
+        alert(`${numeroInteiro} = ${centena} centena.`);
+    } else if (( centena > 1) && (dezena == 0) && (unidade == 0)) {
+        alert(`${numeroInteiro} = ${centena} centenas.`);
+    } else if (( centena == 1) && (dezena == 0) && (unidade == 1)) {
+        alert(`${numeroInteiro} = ${centena} centena e ${unidade} unidade.`);
+    } else if (( centena > 1) && (dezena == 0) && (unidade == 1)) {
+        alert(`${numeroInteiro} = ${centena} centenas e ${unidade} unidade.`);
+    } else if (( centena == 1) && (dezena == 0) && (unidade > 1)) {
+        alert(`${numeroInteiro} = ${centena} centena e ${unidade} unidades.`);
+    } else if (( centena > 1) && (dezena == 0) && (unidade > 1)) {
+        alert(`${numeroInteiro} = ${centena} centenas e ${unidade} unidades.`);
+    } else if (( centena == 1) && (dezena == 1) && (unidade == 0)) {
+        alert(`${numeroInteiro} = ${centena} centena e ${dezena} dezena.`);
+    } else if (( centena > 1) && (dezena == 1) && (unidade == 0)) {
+        alert(`${numeroInteiro} = ${centena} centenas e ${dezena} dezena .`);
+    } else if (( centena == 1) && (dezena > 1) && (unidade == 0)) {
+        alert(`${numeroInteiro} = ${centena} centena e ${dezena} dezenas .`);
+    } else if (( centena > 1) && (dezena > 1) && (unidade == 0)) {
+        alert(`${numeroInteiro} = ${centena} centenas e ${dezena} dezenas .`);
+    } else if (( centena == 1) && (dezena == 1) && (unidade == 1)) {
+        alert(`${numeroInteiro} = ${centena} centena, ${dezena} dezena e ${unidade} unidade.`);
+    } else if (( centena > 1) && (dezena == 1) && (unidade == 1)) {
+        alert(`${numeroInteiro} = ${centena} centenas, ${dezena} dezena e ${unidade} unidade.`);
+    } else if (( centena == 1) && (dezena > 1) && (unidade == 1)) {
+        alert(`${numeroInteiro} = ${centena} centena, ${dezena} dezenas e ${unidade} unidade.`);
+    } else if (( centena > 1) && (dezena > 1) && (unidade == 1)) {
+        alert(`${numeroInteiro} = ${centena} centenas, ${dezena} dezenas e ${unidade} unidade.`);
+    } else if (( centena == 1) && (dezena == 1) && (unidade > 1)) {
+        alert(`${numeroInteiro} = ${centena} centena, ${dezena} dezena e ${unidade} unidades.`);
+    } else if (( centena > 1) && (dezena == 1) && (unidade > 1)) {
+        alert(`${numeroInteiro} = ${centena} centenas, ${dezena} dezena e ${unidade} unidades.`);    
+    } else if (( centena == 1) && (dezena > 1) && (unidade > 1)) {
+        alert(`${numeroInteiro} = ${centena} centena, ${dezena} dezenas e ${unidade} unidades.`);
+    } else if (( centena > 1) && (dezena > 1) && (unidade > 1)) {
+        alert(`${numeroInteiro} = ${centena} centenas, ${dezena} dezenas e ${unidade} unidades.`);
+    } else {
+        alert(`Número inválido! Informe um número inteiro.`);
+    }
+</script>

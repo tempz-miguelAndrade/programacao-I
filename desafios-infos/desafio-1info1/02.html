@@ -1,0 +1,31 @@
+<script>
+    /*
+    Problema: Corrida
+    Considere que uma pessoa correu as seguintes distâncias:
+    let distancias = [1400, 1200, 2600, 800, 800, 400];
+    Leia a lista de distâncias e some a distância total que a pessoa correu. Considere que a pessoa demorou duas horas para correr a distância somada. Calcule qual foi a distância total percorrida e a distância que a pessoa percorreu por hora.
+
+    */
+
+    //Entrada
+    let distancias = [1400, 1200, 2600, 800, 800, 400];
+
+    let somaDistacias = 0;
+    let somaFinal = 0;
+    let tempoHoras = 2;
+    //Processamento
+    for (let distancia of distancias) {
+
+        somaDistacias += distancia;
+        somaFinal = somaDistacias / tempoHoras;
+
+
+    }
+
+    //Saída
+    alert(`você percorreu em duas horas ${somaDistacias} metros.\nE por hora você percorreu ${somaFinal}.`);
+
+    /*
+    A pessoa percorreu 7200 metros em duas horas. Portanto percorreu 3600 metros por hora.
+    */
+</script>
