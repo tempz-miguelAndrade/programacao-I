@@ -1,11 +1,3 @@
-### [**Voltar para o Início**](../../../README.md)
-
-#### [**Página Anterior**](../README.md)
-
-***Requisitos para estar aqui:***
-- Ter lido a introdução sobre a Estruturas de Repetição While!
-- Caso ainda não tenha lido, [**CLIQUE AQUI**.](../README.md)
-
 # Lista de Exercícios
 
 ### <u>**[Problema 01: Nota entre 0 e 10](01_nota0-10.html)**</u>
@@ -71,9 +63,3 @@ Exemplo:
 Entrada: 12345
 Saída: 54321
 ```
-
-
-#
-## Finalizou os Exercícios? Muito bem! Então vamos agora para o próximo conteúdo, <u>**Funções**</u>!
-
-## [**Clique aqui para acessar o próximo tema, Funções**](../../../06_funcoes/README.md)
