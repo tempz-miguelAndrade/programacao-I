@@ -8,13 +8,51 @@
     ***Não apresente listas que não tiveram filme cadastrado.
     */
 
-    //ENTRADA
+    let quantFilmes = Number(prompt(`Informe a quantidade de filmes que deseja cadastrar:`));
 
-    
-    //PROCESSAMENTO
-    
-    
-    //SAÍDA
-    
-    
+    while (quantFilmes < 0 || quantFilmes % 1 != 0 || isNaN(quantFilmes)) {
+        alert(`Informação inválida!`);
+        quantFilmes = Number(prompt(`Informe a quantidade de filmes que deseja cadastrar:`));
+    }
+
+
+    const comediaFilmes = [];
+    const dramaFilmes = [];
+    const romanceFilmes = [];
+    const outrosGeneros = [];
+
+    for (let i = 1; i <= quantidadeFilmes; i++) {
+
+        let filme = prompt(`Informe o filme que deseja inserir:`).trim().toLowerCase();
+        let genero = prompt(`Informe em qual gênero se encaixa:\nComédia;\nDrama;\nRomance.`).trim().toLowerCase();
+
+
+        while (!isNaN(genero)) {
+            alert(`Informação inválida! Adicione um gênero válido.`);
+            genero = prompt(`Informe em qual gênero se encaixa:\nComédia;\nDrama;\nRomance.`).trim().toLowerCase();
+        }
+
+
+        if (genero == `comédia`.toLowerCase() || genero == `comedia`.toLowerCase()) {
+            comediaFilmes.push(filme);
+        }
+        else if (genero == `drama`.toLowerCase()) {
+            dramaFilmes.push(filme);
+        }
+        else if (genero == `romance`.toLowerCase()) {
+            romanceFilmes.push(filme);
+        }
+        else {
+            outrosGeneros.push(filme);
+        }
+
+    }
+
+
+    alert(`Os quantidade de filmes cadastrados forma: ${quantFilmes}.\n
+    Os filmes cadastrados em ordem de gênero foram:\n
+    Comédia: ${comediaFilmes.join(`, `)}.
+    Drama: ${dramaFilmes.join(`, `)}.
+    Romance: ${romanceFilmes.join(`, `)}.`);
+
 </script>

@@ -2,12 +2,18 @@
     //Problema: Peça para o usuário informar um número inteiro.
     //Escreva todos os números na tela, até o número informado pelo usuário, colocando um número em cada linha e começando do número 1!
 
-    //Entrada
+    const numero = parseInt(prompt(`Informe um número inteiro`));
 
-    
-    //Processamento
-    
-    
-    //Saída
+
+    const numeros = [];
+
+    for (let i = 1; i <= numero; i++) {
+
+        numeros.push(i);
+
+    }
+
+
+    alert(`Os números contados do 1 até o número inteiro informado são: ${numeros.join(`, `)}.`);
 
 </script>
