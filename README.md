@@ -1,2 +1,2 @@
 # programacao-I
-Primeiro ensino de progrmação. Estará as listas de exercícios em javascript.
+Meu primeiro ano de programação. Aqui colocarei os estudos que tive em JavaScript. 
