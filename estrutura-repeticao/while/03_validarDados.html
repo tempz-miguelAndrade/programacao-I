@@ -10,13 +10,97 @@
     Estado Civil: 's', 'c', 'v', 'd';
     */
 
-    const nome = prompt(`Informe seu Nome:\n(Deve ser maior que 3 caracteres)`).trim().toLowerCase();
-    const idade = parseInt(prompt(`Informe sua idade:\n(Entre 0  e 150 anos)`));
-    const salario = Number(prompt(`informe seu salário:`)).toFixed(2);
-    const sexo = prompt(`Informe seu Sexo:\nFeminino(F);\nMasculino(M).`).trim().toLowerCase();
-    const estadoCivil = prompt(`Informe seu Estado Civil:\nSolteiro(S);\nCasado(C);\nViúvo(V);\nDivorciado(D).`).trim().toLowerCase();
+    let nome = prompt(`Informe seu Nome:\n(Deve ser maior que 3 caracteres)`).trim().toLowerCase();
+
+    while (!isNaN(nome) || nome.length <= 3) {
+
+        if (!isNaN(nome)) {
+            alert(`ERRO`);
+            alert(`O nome não deve ser em número!`);
+        }
+
+        else if (nome.length <= 3) {
+            alert(`ERRO`);
+            alert(`O nome não deve ter 3 ou menos caracteres!`);
+        }
+
+        nome = prompt(`Informe seu Nome:\n(Deve ser maior que 3 caracteres)`).trim().toLowerCase();
+
+    }
+
+    let idade = Number(prompt(`Informe sua idade:\n(Entre 0  e 150 anos)`));
+
+    while (isNaN(idade) || idade < 0 || idade > 150 || idade % 1 !== 0) {
+
+        if (isNaN(idade)) {
+            alert(`ERRO`);
+            alert(`A idade deve ser um caracter!`);
+        }
+        else if (idade % 1 !== 0) {
+            alert(`ERRO`);
+            alert(`A idade não pode ser decimal!`);
+        }
+        else if (idade < 0 || idade > 150) {
+            alert(`ERRO`);
+            alert(`A idade deve estar entre 0 e 150!`);
+        }
+
+        idade = Number(prompt("Informe sua idade:\n(Entre 0 e 150 anos)"));
+
+    }
+
+    let salario = Number(prompt(`informe seu salário:`)).toFixed(2);
+
+    while (isNaN(salario) || salario <= 0) {
+
+        if (isNaN(salario)) {
+            alert(`ERRO`);
+            alert(`O salário não deve ser caracter!`);
+        }
+        else if (salario <= 0) {
+            alert(`ERRO`);
+            alert(`O salário não pode ser menor que zero!`);
+        }
+
+        salario = Number(prompt(`informe seu salário:`)).toFixed(2);
+
+    }
+
+    let sexo = prompt(`Informe seu Sexo:\nFeminino(F);\nMasculino(M).`).trim().toLowerCase();
+
+    while (!isNaN(sexo) || (sexo.toLowerCase() != `f` && sexo.toLocaleLowerCase() != `m`)) {
+
+        if (!isNaN(sexo)) {
+            alert(`ERRO`);
+            alert(`O sexo não dever ser um número!`);
+        } else if (sexo.toLowerCase() != `f` && sexo.toLocaleLowerCase() != `m`) {
+            alert(`ERRO`);
+            alert(`O sexo não ouver outro caractere a não ser F e M!`);
+        }
+
+        sexo = prompt(`Informe seu Sexo:\nFeminino(F);\nMasculino(M).`).trim().toLowerCase();
+
+    }
+
+    let estadoCivil = prompt(`Informe seu Estado Civil:\nSolteiro(S);\nCasado(C);\nViúvo(V);\nDivorciado(D).`).trim().toLowerCase();
+
+    while (!isNaN(estadoCivil) || (estadoCivil.toLocaleLowerCase() != `s` && estadoCivil.toLocaleLowerCase() != `c` && estadoCivil.toLocaleLowerCase() != `v` && estadoCivil.toLocaleLowerCase() != `d`)) {
+
+        if (!isNaN(estadoCivil)) {
+            alert(`ERRO`);
+            alert(`O estado civil não deve ser um número!`);
+        } else if (estadoCivil.toLocaleLowerCase() != `s` && estadoCivil.toLocaleLowerCase() != `c` && estadoCivil.toLocaleLowerCase() != `v` && estadoCivil.toLocaleLowerCase() != `d`) {
+            alert(`ERRO`);
+            alert(`O estado civil não deve ser outros caracteres a não ser o S, C, V e D!`);
+        }
+
+        estadoCivil = prompt(`Informe seu Estado Civil:\nSolteiro(S);\nCasado(C);\nViúvo(V);\nDivorciado(D).`).trim().toLowerCase();
+
+    }
 
 
+    alert(`Seus dados do usuários foram cadastrados!`);
+    alert(`DADOS:
+    \nNome: ${nome};\nIdade: ${idade};\nSalário: R$${salario};\nSexo: ${sexo};\nEstado civil: ${estadoCivil}.`);
 
-    
 </script>
