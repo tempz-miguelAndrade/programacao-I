@@ -1,7 +1,55 @@
+<meta charset="UTF-8">
 <script>
     //Problema: Fibonacci
     /*
     Pergunte ao usuário quantos números da sequência de Fibonacci deseja obter, usando a estrutura de repetição while.
     */
+
+    let limite = Number(prompt(`Informe quantos números da sequência de Fibonacci você deseja obter? (Digite um número inteiro positivo):`));
+
+
+    while (isNaN(limite) || limite <= 0 || limite % 1 !== 0) {
+
+        if (isNaN(limite)) {
+            alert(`ERRO`);
+            alert(`O a informação deve ser um número não um caractere!`);
+        } else if (limite % 1 !== 0) {
+            alert(`ERRO`);
+            alert(`Digite um número inteiro!`);
+        } else if (limite <= 0) {
+            alert(`ERRO`);
+            alert(`Digite um número maior que 0!`);
+        }
+
+        limite = Number(prompt(`Quantos números da sequência de Fibonacci você deseja obter?:`));
+    }
+
+
+    let n1 = 0;
+    let n2 = 1;
+    let proximoTermo;
+    let i = 1;
+    let sequencia = `Sequência de Fibonacci (${limite} termos):\n`;
+
+
+    while (i <= limite) {
+        
+        if (i === 1) {
+            sequencia = sequencia + n1;
+        } else if (i === 2) {
+            sequencia = sequencia + `, ` + n2;
+        } else {
+            proximoTermo = n1 + n2;
+            sequencia = sequencia + `, ` + proximoTermo;
+            
+            n1 = n2;
+            n2 = proximoTermo;
+        }
+        
+        i++;
+    }
+
+    
+    alert(sequencia);
 
 </script>

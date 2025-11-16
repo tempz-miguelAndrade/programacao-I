@@ -1,3 +1,4 @@
+<meta charset="UTF-8">
 <script>
     //Problema: Inversão de Número
     /*
@@ -6,5 +7,39 @@
     Entrada: 12345
     Saída: 54321
     */
+
+    let numero = Number(prompt(`Digite um número inteiro positivo para inverter (Ex: 12345):`));
+    let numeroInvertido = 0;
+    
+    let numeroOriginal = numero;
+
+
+    while (isNaN(numero) || numero < 0 || numero % 1 !== 0) {
+        
+        if (isNaN(numero)) {
+            alert(`ERRO`);
+            alert(`O a informação deve ser um número não um caractere!`);
+        } else if (numero % 1 !== 0) {
+            alert(`ERRO`);
+            alert(`Digite um número inteiro!`);
+        } else if (numero <= 0) {
+            alert(`ERRO`);
+            alert(`Digite um número maior que 0!`);
+        }
+
+        numero = Number(prompt(`Digite um número inteiro positivo para inverter (Ex: 12345):`));
+        numeroOriginal = numero;
+
+    }
+
+    while (numero > 0) {
+        
+        let resto = numero % 10;
+        numeroInvertido = (numeroInvertido * 10) + resto;
+        numero = Math.floor(numero / 10);
+    }
+    
+    
+    alert(`Resultado:\nNúmero Original: ${numeroOriginal}\nNúmero Invertido: ${numeroInvertido}`);
 
 </script>

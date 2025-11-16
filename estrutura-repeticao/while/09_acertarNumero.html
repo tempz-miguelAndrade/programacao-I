@@ -1,7 +1,43 @@
+<meta charset="UTF-8">
 <script>
     //Problema: Acertar o número
     /*
     O computador escolhe um número aleatório de 1 a 30, e o usuário precisa adivinhar. O programa dá dicas ("maior" ou "menor") até acertar.
     */
+
+
+    let numeroAleatorio = Math.floor(Math.random() * 30) + 1;
+
+    let palpite = 0;
+
+    
+    while (palpite !== numeroAleatorio) {
+
+        palpite = Number(prompt(`Adivinhe o número (entre 1 e 30):`));
+
+        while (isNaN(palpite) || palpite < 1 || palpite > 30) {
+
+            if (isNaN(palpite)) {
+                alert(`ERRO`);
+                alert(`O palpite deve ser em número não em caractere!`);
+            } else if (palpite < 1 || palpite > 30) {
+                alert(`ERRO`);
+                alert(`Por favor, digite um NÚMERO entre 1 e 30.`);
+            }
+
+            palpite = Number(prompt(`Adivinhe o número (entre 1 e 30):`));
+        }
+
+        if (palpite < numeroAleatorio) {
+            alert(`O número secreto é MAIOR! Tente novamente.`);
+
+        } else if (palpite > numeroAleatorio) {
+            alert(`O número secreto é MENOR! Tente novamente.`);
+
+        }
+    }
+
+
+    alert(`Parabéns! Você acertou! O número era ${numeroAleatorio}.`);
 
 </script>

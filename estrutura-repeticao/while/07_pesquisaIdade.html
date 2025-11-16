@@ -12,6 +12,86 @@
     Finalize a entrada de dados ao ser digitada uma idade negativa.
     */
 
+    let totalSalario = 0;
+    let contadorPessoas = 0;
+    let quantidadeMulheres = 0;
+
+    let maiorIdade = 0;
+    let menorIdade = 0;
+
+    let menorSalario = 0;
+    let idadeMenorSalario = 0;
+    let sexoMenorSalario = ``;
+
+    let idade = Number(prompt(`Informe a idade (ou idade negativa para sair):`));
+
+    while (idade >= 0) {
+
+        let sexo = prompt(`Informe o sexo ((M)masculino/(F)feminino) da pessoa de ${idade} anos:`).trim().toLowerCase();
+
+        while (sexo !== 'm' && sexo !== 'f') {
+            alert(`ERRO`);
+            alert(`Digite 'm' para Masculino ou 'f' para Feminino!`);
+            sexo = prompt(`Informe o sexo (M)masculino/(F)feminino) da pessoa de ${idade} anos:`).trim().toLowerCase();
+        }
+
+        let salario = Number(prompt(`Informe o salário da pessoa de ${idade} anos:`));
+
+        while (isNaN(salario) || salario <= 0) {
+
+            if (isNaN(salario)) {
+                alert(`ERRO`);
+                alert(`O salário deve ser um número não um caractere!`);
+            } else if (salario <= 0) {
+                alert(`ERRO`);
+                alert(`Digite um valor numérico positivo para o salário.`);
+            }
+
+            salario = Number(prompt(`Informe o salário da pessoa de ${idade} anos:`));
+        }
+
+        totalSalario = totalSalario + salario;
+        contadorPessoas = contadorPessoas + 1;
+
+        if (contadorPessoas == 1) {
+            maiorIdade = idade;
+            menorIdade = idade;
+
+            menorSalario = salario;
+            idadeMenorSalario = idade;
+            sexoMenorSalario = sexo;
+
+        } else {
+            if (idade > maiorIdade) {
+                maiorIdade = idade;
+            } else if (idade < menorIdade) {
+                menorIdade = idade;
+            }
+
+            if (salario < menorSalario) {
+                menorSalario = salario;
+                idadeMenorSalario = idade;
+                sexoMenorSalario = sexo;
+            }
+        }
+
+        if (sexo === 'f') {
+            quantidadeMulheres = quantidadeMulheres + 1;
+        }
+
+        idade = Number(prompt(`Informe a próxima idade (ou idade negativa para sair):`));
+    }
+
     
+    if (contadorPessoas > 0) {
+
+        let mediaSalarial = totalSalario / contadorPessoas;
+
+        alert(`Resultado da pesquisa:\n
+        Média dos salários: R$ ${mediaSalarial.toFixed(2)}\nMaior idade do grupo: ${maiorIdade} anos\nMenor idade do grupo: ${menorIdade} anos\nQuantidade de mulheres: ${quantidadeMulheres}\nPessoa com o menor salário:\nIdade: ${idadeMenorSalario}\nSexo: ${sexoMenorSalario}`);
+
+    } else {
+        alert(`Nenhum dado foi inserido. Pesquisa encerrada.`);
+    }
 
 </script>

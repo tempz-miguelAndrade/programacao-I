@@ -19,6 +19,65 @@
     d) O candidato vencedor.
     */
 
-    
+    let voto = Number(prompt(`Vote na nossa urna eletrônica. As opções são:
+    \n1. Candidato Joãozinho\n2. Candidata Mariazinha\n3. Nulo\n4. Branco\n\nEntre com o seu voto:\n(Digite 0 para encerrar)`));
+
+    let joao = 0;
+    let maria = 0;
+    let nulo = 0;
+    let branco = 0;
+    let total = 0;
+
+
+    while (voto !== 0) {
+
+        if (isNaN(voto)) {
+            alert(`ERRO`);
+            alert(`O voto deve ser um número entre 0 e 4!`);
+        } else if (voto < 0 || voto > 4) {
+            alert(`ERRO`);
+            alert(`Você só pode votar em 1, 2, 3, 4 ou digitar 0 para encerrar!`);
+        } else {
+
+            if (voto === 1) {
+                joao++;
+                total++;
+            } else if (voto === 2) {
+                maria++;
+                total++;
+            } else if (voto === 3) {
+                nulo++;
+                total++;
+            } else if (voto === 4) {
+                branco++;
+                total++;
+            }
+        }
+
+        voto = Number(prompt(`As opções são:
+        \n1. Candidato Joãozinho\n2. Candidata Mariazinha\n3. Nulo\n4. Branco\n\nEntre com o seu voto:\n(Digite 0 para encerrar)`));
+    }
+
+
+    let porcNulo = ((nulo / total) * 100).toFixed(2);
+    let porcBranco = ((branco / total) * 100).toFixed(2);
+
+    let vencedor = ``;
+
+    if (joao > maria) {
+        vencedor = `Joãozinho`;
+    } else if (maria > joao) {
+        vencedor = `Mariazinha`;
+    } else {
+        vencedor = `Empate`;
+    }
+
+
+    alert(`Resultados:
+    \nVotos:\nJoãozinho: ${joao}\nMariazinha: ${maria}\nNulos: ${nulo}\nBrancos: ${branco}`);
+    alert(`Porcentagens:
+    \nNulos: ${porcNulo}%\nBrancos: ${porcBranco}%`);
+    alert(`VENCEDOR:
+    \n${vencedor}`);
 
 </script>
