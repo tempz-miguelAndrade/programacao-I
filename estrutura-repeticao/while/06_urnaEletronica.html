@@ -29,7 +29,7 @@
     let total = 0;
 
 
-    while (voto !== 0) {
+    while (isNaN(voto) || voto !== 0) {
 
         if (isNaN(voto)) {
             alert(`ERRO`);
