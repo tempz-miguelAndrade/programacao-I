@@ -5,9 +5,9 @@
     Faça um programa que receba uma senha formada de quatro números inteiros, verifique se a senha está correta e, caso não esteja, solicite novamente a senha. Se a senha entrada for a correta, deverá ser apresentada a mensagem “Senha Correta”, caso contrário, “Senha Incorreta”.
     */
 
-    let senha = Number(prompt(`Informe uma senha de quatro números inteiros`));
+    let senha = prompt(`Informe uma senha de quatro números inteiros`);
 
-    while (String(senha).length < 4 || String(senha).length > 4) {
+    while (senha.length < 4 || senha.length > 4) {
         alert(`ERRO`);
         alert(`Sua senha tem menor que quatro ou maior que quatro números!`);
 
