@@ -1,0 +1,37 @@
+<script>
+    /*
+    PROBLEMA: CÁLCULO DO IMC
+    Desenvolva um programa que contenha uma função que calcule o IMC de uma pessoa. A fórmula para o cálculo do IMC é a seguinte:
+    IMC = peso / altura²
+    */
+
+    function imc(peso, altura) {
+        let imc = peso / Math.pow(altura, 2);
+        return imc.toFixed(2);
+    }
+
+
+    const pesoTxt = prompt(`Informe seu peso:`);
+    let pesoUsuario = Number(pesoTxt);
+
+    while (isNaN(pesoUsuario) || pesoTxt == ``) {
+        alert(`ERRO: seu peso deve ser em números!`);
+        const pesoTxt = prompt(`Informe seu peso:`);
+        let pesoUsuario = Number(pesoTxt);
+    }
+
+    const alturaTxt = prompt(`Informe sua altura:`);
+    let alturaUsuario = Number(alturaTxt);
+
+    while (isNaN(alturaUsuario) || pesoTxt == ``) {
+        alert(`ERRO: seu altura deve ser em números!`);
+        const alturaTxt = prompt(`Informe sua altura:`);
+        let alturaUsuario = Number(alturaTxt);
+    }
+
+
+    const resultadoImcUsuario = imc(pesoUsuario, alturaUsuario);
+    alert(`O resultado do cálculo do IMC é de: ${resultadoImcUsuario}.`);
+
+
+</script>

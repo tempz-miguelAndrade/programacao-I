@@ -1,0 +1,36 @@
+<script>
+    /*
+    PROBLEMA: VERIFICAR NÚMERO PAR OU ÍMPAR
+    Desenvolva um programa que contenha uma função JavaScript para verificar se o número fornecido pelo usuário é par ou ímpar. Um número é par quando o resto da divisão dele por 2 é igual a zero. Um número é ímpar quando o resto da divisão dele por 2 é igual a 1 (pode também validar se é diferente de zero). Por exemplo, o número 7 é ímpar, pois o resto da divisão dele por 2 é igual a 1. O número 8 é par, pois o resto da divisão dele por 2 é igual a 0.
+    */
+
+    function parImpar(numero) {
+
+        if (numero % 2 != 0) {
+            return `ÍMPAR`;
+        } else {
+            return `PAR`;
+        }
+    }
+
+
+    let numeroTxt = prompt(`Informe um número:`);
+    let numeroUsuario = Number(numeroTxt);
+
+    while (isNaN(numeroUsuario) || numeroUsuario % 1 != 0 || numeroUsuario < 0) {
+
+        if (isNaN(numeroUsuario) || numeroUsuario % 1 != 0) {
+            alert(`ERRO: digite um número inteiro!`);
+        } else if (numeroUsuario < 0) {
+            alert(`ERRO: o número não deve ser negativo!`);
+        }
+
+        numeroTxt = prompt(`Informe um número:`);
+        numeroUsuario = Number(numeroTxt);
+    }
+
+
+    const resultadoParImparUsuario = parImpar(numeroUsuario);
+    alert(`O número ${numeroUsuario} é ${resultadoParImparUsuario}!`);
+
+</script>
