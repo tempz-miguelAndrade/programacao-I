@@ -1,2 +1,2 @@
 # programacao-I
-Meu primeiro ano de programação. Aqui colocarei os estudos que tive em JavaScript. 
+Meu primeiro ano de programação. Aqui colocarei os estudos que tive em JavaScript. Mesmo estando em HTML. 
