@@ -24,15 +24,18 @@ let notas = [
 ];
 */
 
+	// dados iniciais
+	let alunos = ["João", "Maria", "Pedro", "Ana", "Carlos"];
+	let notas = adicionarNotas(alunos);
 
 	function validador(promptTxt) {
-
 		let entrada = prompt(promptTxt);
 		let nota = Number(entrada);
-		// Diferenciação para o prompt dar certo caso for vazio
 
+		// diferenciação para o prompt dar certo caso for vazio
 		while (isNaN(nota) || nota < 0 || nota > 10 || entrada == ``) {
 
+			// explicando cada erro do usuário
 			if (isNaN(nota)) {
 				alert(`ERRO: A nota deve ser número!`);
 			} else if (nota < 0 || nota > 10) {
@@ -40,7 +43,6 @@ let notas = [
 			} else if (entrada == ``) {
 				alert(`ERRO: Digite a nota!`);
 			}
-			// Falar o erro do usuário
 			entrada = prompt(promptTxt);
 			nota = Number(entrada);
 		}
@@ -52,13 +54,16 @@ let notas = [
 	function adicionarNotas(alunos) {
 		let notas = [];
 
+		// para cada aluno
 		for (let i = 0; i < alunos.length; i++) {
 			let notasAluno = [];
+
 			// Adiciona 4 notas para cada aluno
 			for (let j = 0; j < 4; j++) {
-				let nota = validador(`Digite a nota ${j + 1} do aluno ${alunos[i]}:`);
-				notasAluno.push(nota);
-				// Adiciona a nota validada ao array de notas do aluno
+
+				// adiciona a nota validada ao array de notas do aluno
+				let pergunta = validador(`Digite a nota ${j + 1} do aluno ${alunos[i]}:`);
+				notasAluno.push(pergunta);
 			}
 
 			notas.push(notasAluno);
@@ -69,6 +74,8 @@ let notas = [
 
 
 	function calcularMedia(notasAluno) {
+
+		//calcula a média das notas do aluno
 		let soma = 0;
 		for (let i = 0; i < notasAluno.length; i++) {
 			soma += notasAluno[i];
@@ -79,30 +86,35 @@ let notas = [
 
 
 	function desempenho(media) {
+
+		// classifica o desempenho com base na média
 		if (media >= 9) {
 			return `Excelente`;
-		} else if (media >= 7) {
+		} else if (media >= 8) {
 			return `Bom`;
-		} else if (media >= 5) {
-			return `Regular`;
+		} else if (media >= 6) {
+			return `Na média`;
 		} else {
-			return `Insuficiente`;
+			return `Abaixo da média`;
 		}
 	}
 
 
 	function saida(alunos, notas) {
+
+		// Aplica a média e a classificação para cada aluno
 		for (let i = 0; i < alunos.length; i++) {
-			// Aplica a média e a classificação para cada aluno
+
+			// informações do relatório
 			let media = calcularMedia(notas[i]);
 			let classificacao = desempenho(media);
+
+			// saída final
 			alert(`Aluno: ${alunos[i]}\nNotas: ${notas[i].join(", ")}\nMédia: ${media.toFixed(2)}\nClassificação: ${classificacao}`);
 		}
 	}
 
-
-	let alunos = ["João", "Maria", "Pedro", "Ana", "Carlos"];
-	let notas = adicionarNotas(alunos);
+	// chamando a saída
 	saida(alunos, notas);
 
 </script>
