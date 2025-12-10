@@ -22,11 +22,57 @@ let alunos = ["João", "Maria", "Pedro", "Ana", "Carlos"];
 let notas = [
 	// cada elemento é um array com 4 notas, ex: [8, 7.5, 9, 10]
 ];
+
+
+> **DESAFIO:** Implemente um sistema completo onde o professor possa cadastrar notas, remover um aluno se necessário, visualizar relatórios e tudo validado adequadamente.
+## Problema 3: Sistema de Estoque de Produtos com Preço
 */
 
 	// dados iniciais
 	let alunos = ["João", "Maria", "Pedro", "Ana", "Carlos"];
-	let notas = adicionarNotas(alunos);
+	let batata = 0
+	let notas = [];
+
+	function telaInicial() {
+		let perguntaIncialTxt = prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Visualizar relatórios\n3. Aplicar as notas`).toLowerCase().trim();
+		let perguntaIncialNum = Number(perguntaIncialTxt);
+
+		if (perguntaIncialNum == 1 || perguntaIncialTxt == `remover aluno` || perguntaIncialTxt == `remover`) {
+			return removedorAluno();
+
+		} else if (perguntaIncialNum == 2) {
+			return saida(alunos, notas);
+
+		} else if (perguntaIncialNum == 3) {
+			return notas = adicionarNotas(alunos);
+
+		} else {
+			batata = 1;
+		}
+	}
+
+	function removedorAluno() {
+		let resposta = String(removerAluno).toLowerCase().trim();
+		let removerAluno = prompt(`Qual aluno deseja remover?\n${alunos[0].toLowerCase().trim()}\n${alunos[1].toLowerCase().trim()};\n${alunos[2].toLowerCase().trim()};\n${alunos[3].toLowerCase().trim()};\n${alunos[4].toLowerCase().trim()}.`);
+		if (resposta == `joao` || resposta == `joão`) {
+			alunos = alunos.splice(0, 1);
+			return telaInicial();
+		} else if (resposta == 2) {
+			alunos.splice(1, 1);
+			return telaInicial();
+		} else if (resposta == 3) {
+			alunos.splice(2, 1);
+			return telaInicial();
+		} else if (resposta == 4) {
+			alunos.splice(3, 1);
+			return telaInicial();
+		} else if (resposta == 5) {
+			alunos.splice(4, 1);
+			return telaInicial();
+		} else {
+			return telaInicial();
+		}
+	}
 
 	function validador(promptTxt) {
 		let entrada = prompt(promptTxt);
@@ -52,6 +98,7 @@ let notas = [
 
 
 	function adicionarNotas(alunos) {
+		alert(`Adicione as notas`);
 		let notas = [];
 
 		// para cada aluno
@@ -115,6 +162,5 @@ let notas = [
 	}
 
 	// chamando a saída
-	saida(alunos, notas);
-
+	telaInicial();
 </script>
