@@ -28,21 +28,23 @@ let notas = [
 ## Problema 3: Sistema de Estoque de Produtos com Preço
 */
 
+/*Acho que adicionei muitos conentários sksksksksk, medo de errar a explicação, sempre fico precionado */
+
 	// dados iniciais
 	let alunos = ["João", "Maria", "Pedro", "Ana", "Carlos"];
 	let batata = 0
 	let notas = [];
 
 
-
-	// formalizando texto
+	/*
+	// formalizar texto
 	function normalizar(texto) {
 		return texto
 			.toLowerCase()
 			.normalize("NFD")
 			.replace(/[\u0300-\u036f]/g, "");
 	}
-
+	*/
 
 
 
@@ -50,22 +52,26 @@ let notas = [
 	function telaInicial1() {
 		let perguntaInicial = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Aplicar as notas`));
 
+		// validação de número
 		if (!isNaN(perguntaInicial)) {
-			{
-				if (perguntaInicial == 1) {
-					return removerAluno();
-				} else if (perguntaInicial == 2) {
-					return adicionarNotas(alunos);
-				} else {
-					alert(`Opção inválida!`);
-					return telaInicial1();
-				}
+
+			// opções
+			if (perguntaInicial == 1) {
+				return removerAluno();
+			} else if (perguntaInicial == 2) {
+				return adicionarNotas(alunos);
+			} else {
+				alert(`Opção inválida!`);
+				return telaInicial1();
 			}
 		}
 	}
 
-	// pergunta 2 modificada
+
+
 	function telaInicial2() {
+
+		// pergunta 2 modificada
 		let perguntaInicial = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Ver relatório\n3. Reiniciar.`));
 
 		if (!isNaN(perguntaInicial)) {
@@ -89,10 +95,11 @@ let notas = [
 
 	// validador de notas
 	function validador(promptTxt) {
+
+		// diferenciação para o prompt dar certo caso for vazio
 		let entrada = prompt(promptTxt);
 		let nota = Number(entrada);
 
-		// diferenciação para o prompt dar certo caso for vazio
 		while (isNaN(nota) || nota < 0 || nota > 10 || entrada == ``) {
 
 			// explicando cada erro do usuário
@@ -130,8 +137,8 @@ let notas = [
 		}
 		*/
 
+		// procura o aluno na lista
 		let index = alunos.indexOf(alunoRemover);
-
 
 		if (index !== -1) {
 			// remove o aluno da lista
@@ -141,6 +148,7 @@ let notas = [
 			alert(`Aluno não encontrado!`);
 		}
 
+		// retorna para a tela inicial correta
 		if (notas.length == 0) {
 			return telaInicial1();
 		} else {
@@ -153,14 +161,19 @@ let notas = [
 
 	// função para adicionar notas
 	function adicionarNotas(alunos) {
+
+		// para cada aluno, adiciona 4 notas
 		for (let i = 0; i < alunos.length; i++) {
 			let notasAluno = [];
+
+			// adiciona 4 notas para o aluno
 			for (let j = 0; j < 4; j++) {
 				let nota = validador(`Digite a nota ${j + 1} do aluno ${alunos[i]}:`);
 				notasAluno.push(nota);
 			}
 			notas.push(notasAluno);
 		}
+
 		return telaInicial2();
 	}
 
@@ -179,6 +192,7 @@ let notas = [
 	}
 
 
+
 	// função para classificar desempenho
 	function desempenho(media) {
 
@@ -193,6 +207,8 @@ let notas = [
 			return `Abaixo da média`;
 		}
 	}
+
+
 
 	// função para gerar relatório
 	function saida(alunos, notas) {
@@ -216,5 +232,7 @@ let notas = [
 		return telaInicial2();
 	}
 
+
+	// inicia o programa
 	telaInicial1();
 </script>
