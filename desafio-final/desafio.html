@@ -33,47 +33,61 @@ let notas = [
 	let batata = 0
 	let notas = [];
 
-	function telaInicial() {
-		let perguntaIncialTxt = prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Visualizar relatórios\n3. Aplicar as notas`).toLowerCase().trim();
-		let perguntaIncialNum = Number(perguntaIncialTxt);
 
-		if (perguntaIncialNum == 1 || perguntaIncialTxt == `remover aluno` || perguntaIncialTxt == `remover`) {
-			return removedorAluno();
 
-		} else if (perguntaIncialNum == 2) {
-			return saida(alunos, notas);
+	// formalizando texto
+	function normalizar(texto) {
+		return texto
+			.toLowerCase()
+			.normalize("NFD")
+			.replace(/[\u0300-\u036f]/g, "");
+	}
 
-		} else if (perguntaIncialNum == 3) {
-			return notas = adicionarNotas(alunos);
 
-		} else {
-			batata = 1;
+
+
+	// telas iniciais
+	function telaInicial1() {
+		let perguntaInicial = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Aplicar as notas`));
+
+		if (!isNaN(perguntaInicial)) {
+			{
+				if (perguntaInicial == 1) {
+					return removerAluno();
+				} else if (perguntaInicial == 2) {
+					return adicionarNotas(alunos);
+				} else {
+					alert(`Opção inválida!`);
+					return telaInicial1();
+				}
+			}
 		}
 	}
 
-	function removedorAluno() {
-		let resposta = String(removerAluno).toLowerCase().trim();
-		let removerAluno = prompt(`Qual aluno deseja remover?\n${alunos[0].toLowerCase().trim()}\n${alunos[1].toLowerCase().trim()};\n${alunos[2].toLowerCase().trim()};\n${alunos[3].toLowerCase().trim()};\n${alunos[4].toLowerCase().trim()}.`);
-		if (resposta == `joao` || resposta == `joão`) {
-			alunos = alunos.splice(0, 1);
-			return telaInicial();
-		} else if (resposta == 2) {
-			alunos.splice(1, 1);
-			return telaInicial();
-		} else if (resposta == 3) {
-			alunos.splice(2, 1);
-			return telaInicial();
-		} else if (resposta == 4) {
-			alunos.splice(3, 1);
-			return telaInicial();
-		} else if (resposta == 5) {
-			alunos.splice(4, 1);
-			return telaInicial();
-		} else {
-			return telaInicial();
+	// pergunta 2 modificada
+	function telaInicial2() {
+		let perguntaInicial = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Ver relatório\n3. Reiniciar.`));
+
+		if (!isNaN(perguntaInicial)) {
+
+			if (perguntaInicial == 1) {
+				return removerAluno();
+			} else if (perguntaInicial == 2) {
+				return saida(alunos, notas);
+			} else if (perguntaInicial == 3) {
+				return telaInicial1();
+			} else {
+				alert(`Opção inválida!`);
+				return telaInicial2();
+			}
+
 		}
 	}
 
+
+
+
+	// validador de notas
 	function validador(promptTxt) {
 		let entrada = prompt(promptTxt);
 		let nota = Number(entrada);
@@ -97,29 +111,62 @@ let notas = [
 	}
 
 
-	function adicionarNotas(alunos) {
-		alert(`Adicione as notas`);
-		let notas = [];
 
-		// para cada aluno
+	// função para remover aluno
+	function removerAluno() {
+		let alunoRemover = prompt(`Digite o nome do aluno que deseja remover:\n\n${alunos.join(`\n`)}`);
+
+		/*
+		// procura o aluno na lista
+		let nomeNormalizado = normalizar(alunoRemover);
+		let index = -1;
+
+		// procura manualmente
 		for (let i = 0; i < alunos.length; i++) {
-			let notasAluno = [];
-
-			// Adiciona 4 notas para cada aluno
-			for (let j = 0; j < 4; j++) {
-
-				// adiciona a nota validada ao array de notas do aluno
-				let pergunta = validador(`Digite a nota ${j + 1} do aluno ${alunos[i]}:`);
-				notasAluno.push(pergunta);
+			if (normalizar(alunos[i]) === nomeNormalizado) {
+				index = i;
+				break;
 			}
+		}
+		*/
 
-			notas.push(notasAluno);
+		let index = alunos.indexOf(alunoRemover);
+
+
+		if (index !== -1) {
+			// remove o aluno da lista
+			alunos.splice(index, 1);
+			alert(`Aluno ${alunoRemover} removido com sucesso!`);
+		} else {
+			alert(`Aluno não encontrado!`);
 		}
 
-		return notas;
+		if (notas.length == 0) {
+			return telaInicial1();
+		} else {
+			return telaInicial2();
+		}
 	}
 
 
+
+
+	// função para adicionar notas
+	function adicionarNotas(alunos) {
+		for (let i = 0; i < alunos.length; i++) {
+			let notasAluno = [];
+			for (let j = 0; j < 4; j++) {
+				let nota = validador(`Digite a nota ${j + 1} do aluno ${alunos[i]}:`);
+				notasAluno.push(nota);
+			}
+			notas.push(notasAluno);
+		}
+		return telaInicial2();
+	}
+
+
+
+	// função para calcular média
 	function calcularMedia(notasAluno) {
 
 		//calcula a média das notas do aluno
@@ -132,6 +179,7 @@ let notas = [
 	}
 
 
+	// função para classificar desempenho
 	function desempenho(media) {
 
 		// classifica o desempenho com base na média
@@ -146,8 +194,14 @@ let notas = [
 		}
 	}
 
-
+	// função para gerar relatório
 	function saida(alunos, notas) {
+
+		// se não há alunos, mostra mensagem
+		if (alunos.length === 0) {
+			alert("Não há alunos cadastrados para gerar relatório!");
+			return telaInicial2();
+		}
 
 		// Aplica a média e a classificação para cada aluno
 		for (let i = 0; i < alunos.length; i++) {
@@ -159,8 +213,8 @@ let notas = [
 			// saída final
 			alert(`Aluno: ${alunos[i]}\nNotas: ${notas[i].join(", ")}\nMédia: ${media.toFixed(2)}\nClassificação: ${classificacao}`);
 		}
+		return telaInicial2();
 	}
 
-	// chamando a saída
-	telaInicial();
+	telaInicial1();
 </script>
