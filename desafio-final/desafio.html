@@ -75,7 +75,7 @@ let notas = [
 		if (perguntaInicial == 1) {
 			return removerAluno();
 		} else if (perguntaInicial == 2) {
-			return saida(alunos, notas);
+			return relatorio();
 		} else if (perguntaInicial == 3) {
 			return reiniciar();
 		} else {
@@ -96,32 +96,32 @@ let notas = [
 
 
 	// validador de notas
-	function validador(promptTxt) {
+	function validador(pergunta) {
 
 
 		// validação para as duas telas iniciais
-		if (promptTxt == `O que deseja realizar?\n\n1. Remover aluno;\n2. Aplicar as notas.`) {
+		if (pergunta == `O que deseja realizar?\n\n1. Remover aluno;\n2. Aplicar as notas.`) {
 
 			// transforma em texto para validação
-			promptTxt = prompt(promptTxt);
+			pergunta = prompt(pergunta);
 
 			// validação e depois transforma em número com o parseInt
-			while ((promptTxt != 1 && promptTxt != 2)) {
+			while ((pergunta != 1 && pergunta != 2)) {
 				alert(`ERRO: A opção deve ser igual as das mostradas (1 ou 2)!`);
-				promptTxt = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno;\n2. Aplicar as notas.`));
+				pergunta = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno;\n2. Aplicar as notas.`));
 			}
-			return promptTxt;
+			return pergunta;
 
-			// segunta tela
-		} else if (promptTxt == `O que deseja realizar?\n\n1. Remover aluno;\n2. Ver relatório;\n3. Reiniciar.`) {
+			// segunta tela inical
+		} else if (pergunta == `O que deseja realizar?\n\n1. Remover aluno;\n2. Ver relatório;\n3. Reiniciar.`) {
 
-			promptTxt = prompt(promptTxt);
+			pergunta = prompt(pergunta);
 
-			while ((promptTxt != 1 && promptTxt != 2 && promptTxt != 3)) {
+			while ((pergunta != 1 && pergunta != 2 && pergunta != 3)) {
 				alert(`ERRO: A opção deve ser igual as das mostradas (1, 2 ou 3)!`);
-				promptTxt = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno;\n2. Ver relatório;\n3. Reiniciar.`));
+				pergunta = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno;\n2. Ver relatório;\n3. Reiniciar.`));
 			}
-			return promptTxt;
+			return pergunta;
 
 
 
@@ -129,7 +129,7 @@ let notas = [
 		} else {
 
 			// diferenciação para o prompt dar certo caso for vazio
-			let notaParaVazio = prompt(promptTxt);
+			let notaParaVazio = prompt(pergunta);
 			let nota = Number(notaParaVazio);
 
 
@@ -143,7 +143,7 @@ let notas = [
 				} else if (notaParaVazio == ``) {
 					alert(`ERRO: Digite a nota!`);
 				}
-				notaParaVazio = prompt(promptTxt);
+				notaParaVazio = prompt(pergunta);
 				nota = Number(notaParaVazio);
 			}
 
@@ -194,7 +194,7 @@ let notas = [
 		// if legal porque retorna para a tela inicial correta
 		if (notas.length == 0) {
 			return telaInicial1();
-		} else {
+		}  else {
 			return telaInicial2();
 		}
 	}
@@ -204,6 +204,12 @@ let notas = [
 
 	// função para adicionar notas
 	function adicionarNotas() {
+
+		// se não tem alunos mostra a mensagem
+		if (alunos.length == 0) {
+			alert("Não há alunos para cadastrar notas!");
+			return telaInicial2();
+		}
 
 		// para cada aluno, adiciona 4 notas
 		for (let i = 0; i < alunos.length; i++) {
@@ -254,7 +260,7 @@ let notas = [
 
 
 	// função para gerar relatório
-	function saida() {
+	function relatorio() {
 
 		// se não tem alunos mostra a mensagem
 		if (alunos.length == 0) {
