@@ -43,19 +43,21 @@ let notas = [
 			.normalize("NFD")
 			.replace(/[\u0300-\u036f]/g, "");
 	}
+
+	tentei utilizar essa função mas não soube te explicar porque peguei do google, então deixei comentada para utilização futura
 	*/
 
 
 
 	// telas iniciais
 	function telaInicial1() {
-		let perguntaInicial = validador(`O que deseja realizar?\n\n1. Remover aluno\n2. Aplicar as notas`);
+		let perguntaInicial = validador(`O que deseja realizar?\n\n1. Remover aluno;\n2. Aplicar as notas.`);
 
 		// opções
 		if (perguntaInicial == 1) {
 			return removerAluno();
 		} else if (perguntaInicial == 2) {
-			return adicionarNotas(alunos);
+			return adicionarNotas();
 		} else {
 			alert(`Opção inválida!`);
 			return telaInicial1();
@@ -67,7 +69,7 @@ let notas = [
 	function telaInicial2() {
 
 		// pergunta 2 modificada
-		perguntaInicial = validador(`O que deseja realizar?\n\n1. Remover aluno\n2. Ver relatório\n3. Reiniciar`);
+		perguntaInicial = validador(`O que deseja realizar?\n\n1. Remover aluno;\n2. Ver relatório;\n3. Reiniciar.`);
 
 		// opções
 		if (perguntaInicial == 1) {
@@ -98,27 +100,26 @@ let notas = [
 
 
 		// validação para as duas telas iniciais
-		if (promptTxt == `O que deseja realizar?\n\n1. Remover aluno\n2. Aplicar as notas`) {
+		if (promptTxt == `O que deseja realizar?\n\n1. Remover aluno;\n2. Aplicar as notas.`) {
 
 			// transforma em texto para validação
 			promptTxt = prompt(promptTxt);
 
-			// transforma em número para validação
+			// validação e depois transforma em número com o parseInt
 			while ((promptTxt != 1 && promptTxt != 2)) {
 				alert(`ERRO: A opção deve ser igual as das mostradas (1 ou 2)!`);
-				promptTxt = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Aplicar as notas`));
+				promptTxt = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno;\n2. Aplicar as notas.`));
 			}
 			return promptTxt;
 
-		} else if (promptTxt == `O que deseja realizar?\n\n1. Remover aluno\n2. Ver relatório\n3. Reiniciar`) {
+			// segunta tela
+		} else if (promptTxt == `O que deseja realizar?\n\n1. Remover aluno;\n2. Ver relatório;\n3. Reiniciar.`) {
 
-			// transforma em texto para validação
 			promptTxt = prompt(promptTxt);
-			
-			// transforma em número para validação
+
 			while ((promptTxt != 1 && promptTxt != 2 && promptTxt != 3)) {
 				alert(`ERRO: A opção deve ser igual as das mostradas (1, 2 ou 3)!`);
-				promptTxt = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Ver relatório\n3. Reiniciar`));
+				promptTxt = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno;\n2. Ver relatório;\n3. Reiniciar.`));
 			}
 			return promptTxt;
 
@@ -128,22 +129,22 @@ let notas = [
 		} else {
 
 			// diferenciação para o prompt dar certo caso for vazio
-			let entrada = prompt(promptTxt);
-			let nota = Number(entrada);
+			let notaParaVazio = prompt(promptTxt);
+			let nota = Number(notaParaVazio);
 
 
-			while (isNaN(nota) || nota < 0 || nota > 10 || entrada == ``) {
+			while (isNaN(nota) || nota < 0 || nota > 10 || notaParaVazio == ``) {
 
 				// explicando cada erro do usuário
 				if (isNaN(nota)) {
 					alert(`ERRO: A nota deve ser número!`);
 				} else if (nota < 0 || nota > 10) {
 					alert(`ERRO: A nota deve estar entre 0 e 10!`);
-				} else if (entrada == ``) {
+				} else if (notaParaVazio == ``) {
 					alert(`ERRO: Digite a nota!`);
 				}
-				entrada = prompt(promptTxt);
-				nota = Number(entrada);
+				notaParaVazio = prompt(promptTxt);
+				nota = Number(notaParaVazio);
 			}
 
 			return nota;
@@ -154,11 +155,18 @@ let notas = [
 
 	// função para remover aluno
 	function removerAluno() {
-		let alunoRemover = prompt(`Digite o nome do aluno que deseja remover:\n\n${alunos.join(`\n`)}`);
+
+		// se não tem alunos mostra a mensagem
+		if (alunos.length == 0) {
+			alert("Não há alunos cadastrados para remover!");
+			return telaInicial2();
+		}
+
+		let removerAluno = prompt(`Digite o nome do aluno que deseja remover:\n\n${alunos.join(`;\n`)}.`);
 
 		/*
 		// procura o aluno na lista
-		let nomeNormalizado = normalizar(alunoRemover);
+		let nomeNormalizado = normalizar(removerAluno);
 		let index = -1;
 
 		// procura manualmente
@@ -168,20 +176,22 @@ let notas = [
 				break;
 			}
 		}
+
+		a segunda parte da função normalizar que tentei usar mas não consegui explicar direito
 		*/
 
 		// procura o aluno na lista
-		let index = alunos.indexOf(alunoRemover);
+		let index = alunos.indexOf(removerAluno);
 
 		if (index !== -1) {
 			// remove o aluno da lista
 			alunos.splice(index, 1);
-			alert(`Aluno ${alunoRemover} removido com sucesso!`);
+			alert(`Aluno ${removerAluno} removido com sucesso!`);
 		} else {
 			alert(`Aluno não encontrado!`);
 		}
 
-		// retorna para a tela inicial correta
+		// if legal porque retorna para a tela inicial correta
 		if (notas.length == 0) {
 			return telaInicial1();
 		} else {
@@ -193,7 +203,7 @@ let notas = [
 
 
 	// função para adicionar notas
-	function adicionarNotas(alunos) {
+	function adicionarNotas() {
 
 		// para cada aluno, adiciona 4 notas
 		for (let i = 0; i < alunos.length; i++) {
@@ -220,8 +230,8 @@ let notas = [
 		for (let i = 0; i < notasAluno.length; i++) {
 			soma += notasAluno[i];
 		}
-		let calculo = soma / notasAluno.length;
-		return calculo;
+		let calculoMedia = soma / notasAluno.length;
+		return calculoMedia;
 	}
 
 
@@ -244,10 +254,10 @@ let notas = [
 
 
 	// função para gerar relatório
-	function saida(alunos, notas) {
+	function saida() {
 
-		// se não há alunos, mostra mensagem
-		if (alunos.length === 0) {
+		// se não tem alunos mostra a mensagem
+		if (alunos.length == 0) {
 			alert("Não há alunos cadastrados para gerar relatório!");
 			return telaInicial2();
 		}
@@ -268,4 +278,5 @@ let notas = [
 
 	// inicia o programa
 	telaInicial1();
+
 </script>
