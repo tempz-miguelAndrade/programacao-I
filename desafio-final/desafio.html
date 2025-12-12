@@ -28,7 +28,7 @@ let notas = [
 ## Problema 3: Sistema de Estoque de Produtos com Preço
 */
 
-/*Acho que adicionei muitos conentários sksksksksk, medo de errar a explicação, sempre fico precionado */
+	/*Acho que adicionei muitos conentários sksksksksk, medo de errar a explicação, sempre fico precionado */
 
 	// dados iniciais
 	let alunos = ["João", "Maria", "Pedro", "Ana", "Carlos"];
@@ -49,20 +49,16 @@ let notas = [
 
 	// telas iniciais
 	function telaInicial1() {
-		let perguntaInicial = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Aplicar as notas`));
+		let perguntaInicial = validador(`O que deseja realizar?\n\n1. Remover aluno\n2. Aplicar as notas`);
 
-		// validação de número
-		if (!isNaN(perguntaInicial)) {
-
-			// opções
-			if (perguntaInicial == 1) {
-				return removerAluno();
-			} else if (perguntaInicial == 2) {
-				return adicionarNotas(alunos);
-			} else {
-				alert(`Opção inválida!`);
-				return telaInicial1();
-			}
+		// opções
+		if (perguntaInicial == 1) {
+			return removerAluno();
+		} else if (perguntaInicial == 2) {
+			return adicionarNotas(alunos);
+		} else {
+			alert(`Opção inválida!`);
+			return telaInicial1();
 		}
 	}
 
@@ -71,21 +67,18 @@ let notas = [
 	function telaInicial2() {
 
 		// pergunta 2 modificada
-		let perguntaInicial = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Ver relatório\n3. Reiniciar`));
+		perguntaInicial = validador(`O que deseja realizar?\n\n1. Remover aluno\n2. Ver relatório\n3. Reiniciar`);
 
-		if (!isNaN(perguntaInicial)) {
-
-			if (perguntaInicial == 1) {
-				return removerAluno();
-			} else if (perguntaInicial == 2) {
-				return saida(alunos, notas);
-			} else if (perguntaInicial == 3) {
-				return reiniciar();
-			} else {
-				alert(`Opção inválida!`);
-				return telaInicial2();
-			}
-
+		// opções
+		if (perguntaInicial == 1) {
+			return removerAluno();
+		} else if (perguntaInicial == 2) {
+			return saida(alunos, notas);
+		} else if (perguntaInicial == 3) {
+			return reiniciar();
+		} else {
+			alert(`Opção inválida!`);
+			return telaInicial2();
 		}
 	}
 
@@ -103,25 +96,50 @@ let notas = [
 	// validador de notas
 	function validador(promptTxt) {
 
-		// diferenciação para o prompt dar certo caso for vazio
-		let entrada = prompt(promptTxt);
-		let nota = Number(entrada);
+		// transforma em número para validação
+		promptTxt = prompt(promptTxt);
 
-		while (isNaN(nota) || nota < 0 || nota > 10 || entrada == ``) {
-
-			// explicando cada erro do usuário
-			if (isNaN(nota)) {
-				alert(`ERRO: A nota deve ser número!`);
-			} else if (nota < 0 || nota > 10) {
-				alert(`ERRO: A nota deve estar entre 0 e 10!`);
-			} else if (entrada == ``) {
-				alert(`ERRO: Digite a nota!`);
+		// validação para as duas telas iniciais
+		if (promptTxt == `O que deseja realizar?\n\n1. Remover aluno\n2. Aplicar as notas`) {
+			while ((promptTxt != 1 && promptTxt != 2)) {
+				alert(`ERRO: A opção deve ser igual as das mostradas (1 ou 2)!`);
+				promptTxt = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Aplicar as notas`));
 			}
-			entrada = prompt(promptTxt);
-			nota = Number(entrada);
-		}
+			return promptTxt;
 
-		return nota;
+		} else if (promptTxt == `O que deseja realizar?\n\n1. Remover aluno\n2. Ver relatório\n3. Reiniciar`) {
+			while ((promptTxt != 1 && promptTxt != 2 && promptTxt != 3)) {
+				alert(`ERRO: A opção deve ser igual as das mostradas (1, 2 ou 3)!`);
+				promptTxt = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Ver relatório\n3. Reiniciar`));
+			}
+			return promptTxt;
+
+
+
+		// validação para as notas
+		} else {
+
+			// diferenciação para o prompt dar certo caso for vazio
+			let entrada = prompt(promptTxt);
+			let nota = Number(entrada);
+
+
+			while (isNaN(nota) || nota < 0 || nota > 10 || entrada == ``) {
+
+				// explicando cada erro do usuário
+				if (isNaN(nota)) {
+					alert(`ERRO: A nota deve ser número!`);
+				} else if (nota < 0 || nota > 10) {
+					alert(`ERRO: A nota deve estar entre 0 e 10!`);
+				} else if (entrada == ``) {
+					alert(`ERRO: Digite a nota!`);
+				}
+				entrada = prompt(promptTxt);
+				nota = Number(entrada);
+			}
+
+			return nota;
+		}
 	}
 
 
