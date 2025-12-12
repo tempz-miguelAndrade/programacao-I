@@ -71,7 +71,7 @@ let notas = [
 	function telaInicial2() {
 
 		// pergunta 2 modificada
-		let perguntaInicial = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Ver relatório\n3. Reiniciar.`));
+		let perguntaInicial = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Ver relatório\n3. Reiniciar`));
 
 		if (!isNaN(perguntaInicial)) {
 
@@ -80,7 +80,7 @@ let notas = [
 			} else if (perguntaInicial == 2) {
 				return saida(alunos, notas);
 			} else if (perguntaInicial == 3) {
-				return telaInicial1();
+				return reiniciar();
 			} else {
 				alert(`Opção inválida!`);
 				return telaInicial2();
@@ -89,6 +89,14 @@ let notas = [
 		}
 	}
 
+
+
+	// função para reiniciar
+	function reiniciar() {
+
+		// recarrega a página
+		location.reload(true);
+	}
 
 
 
