@@ -1,4 +1,4 @@
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <script>
 	/*## Problema 2: Gestor de Notas e Médias de Alunos
 
@@ -96,11 +96,14 @@ let notas = [
 	// validador de notas
 	function validador(promptTxt) {
 
-		// transforma em número para validação
-		promptTxt = prompt(promptTxt);
 
 		// validação para as duas telas iniciais
 		if (promptTxt == `O que deseja realizar?\n\n1. Remover aluno\n2. Aplicar as notas`) {
+
+			// transforma em texto para validação
+			promptTxt = prompt(promptTxt);
+
+			// transforma em número para validação
 			while ((promptTxt != 1 && promptTxt != 2)) {
 				alert(`ERRO: A opção deve ser igual as das mostradas (1 ou 2)!`);
 				promptTxt = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Aplicar as notas`));
@@ -108,6 +111,11 @@ let notas = [
 			return promptTxt;
 
 		} else if (promptTxt == `O que deseja realizar?\n\n1. Remover aluno\n2. Ver relatório\n3. Reiniciar`) {
+
+			// transforma em texto para validação
+			promptTxt = prompt(promptTxt);
+			
+			// transforma em número para validação
 			while ((promptTxt != 1 && promptTxt != 2 && promptTxt != 3)) {
 				alert(`ERRO: A opção deve ser igual as das mostradas (1, 2 ou 3)!`);
 				promptTxt = parseInt(prompt(`O que deseja realizar?\n\n1. Remover aluno\n2. Ver relatório\n3. Reiniciar`));
@@ -116,7 +124,7 @@ let notas = [
 
 
 
-		// validação para as notas
+			// validação para as notas
 		} else {
 
 			// diferenciação para o prompt dar certo caso for vazio
